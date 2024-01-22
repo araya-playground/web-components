@@ -4,11 +4,18 @@ import path from "node:path";
 
 const app = fastify({ logger: true });
 
-app.register(fastifyStatic, {
-  root: path.join(import.meta.dirname, "/public/"),
+const PUBLIC_ROOT = path.join(import.meta.dirname, "/public/")
+
+console.log(PUBLIC_ROOT)
+
+app.get("/", async (request, reply) => {
+  return reply.sendFile('index.html', PUBLIC_ROOT)
 });
 
-app.get("/", async (request, reply) => {});
+app.register(fastifyStatic, {
+  root: PUBLIC_ROOT,
+});
+
 
 app.listen({ port: 3000 }, (err, address) => {
   if (err) {
