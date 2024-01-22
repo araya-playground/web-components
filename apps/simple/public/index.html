@@ -6,7 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello, World</h1>
+    <h1>Simple Web Components</h1>
+    <template id="my-paragraph">
+      <style>
+        p {
+          background: black;
+          color: white;
+        }
+      </style>
+      <p>Paragraph in my-paragraph template</p>
+    </template>
+    <p>Pargraph in body</p>
+    <my-paragraph></my-paragraph>
     <script src="/main.js"></script>
   </body>
 </html>
