@@ -1,6 +1,17 @@
 // Implements CustomElement behavior
 class MyParagraph extends HTMLElement {
+  static observedAttributes = ["highlightColor"];
+
   clickCounter = 0;
+  highlightColor = "#FF0000";
+  defaultColor = "#000000";
+  highlighted = false;
+
+  connectedCallback() {
+    this.highlightColor =
+      this.getAttribute("highlightColor") || this.highlightColor;
+  }
+
   constructor() {
     super();
     // get <template> content
@@ -14,7 +25,11 @@ class MyParagraph extends HTMLElement {
     const counterValEl = clonedNode.getElementById("click-counter-val");
     btnEl.addEventListener("click", (e) => {
       e.preventDefault();
-      containerEl.classList.toggle("red");
+      this.highlighted = !this.highlighted;
+      this.highlighted
+        ? (containerEl.style.background = this.highlightColor)
+        : (containerEl.style.background = this.defaultColor);
+
       this.clickCounter++;
       counterValEl.textContent = this.clickCounter;
     });

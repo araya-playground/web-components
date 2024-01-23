@@ -13,9 +13,6 @@
           background: black;
           color: white;
         }
-        .container.red {
-          background: red;
-        }
       </style>
       <div class="container" id="container">
         <p>Paragraph in my-paragraph template</p>
@@ -26,8 +23,11 @@
       </div>
     </template>
     <p>Pargraph in body</p>
-    <my-paragraph>
+    <my-paragraph highlightColor="#FF0000">
       <span slot="btn-text">Switch Black / RED</span>
+    </my-paragraph>
+    <my-paragraph highlightColor="#0000FF">
+      <span slot="btn-text">Switch Black / Blue</span>
     </my-paragraph>
     <script src="/main.js"></script>
   </body>
