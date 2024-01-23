@@ -9,15 +9,26 @@
     <h1>Simple Web Components</h1>
     <template id="my-paragraph">
       <style>
-        p {
+        .container {
           background: black;
           color: white;
         }
+        .container.red {
+          background: red;
+        }
       </style>
-      <p>Paragraph in my-paragraph template</p>
+      <div class="container" id="container">
+        <p>Paragraph in my-paragraph template</p>
+        <p>click counter: <span id="click-counter-val"></span></p>
+        <button id="switch-color-btn">
+          <slot name="btn-text">Change to awesome color!</slot>
+        </button>
+      </div>
     </template>
     <p>Pargraph in body</p>
-    <my-paragraph></my-paragraph>
+    <my-paragraph>
+      <span slot="btn-text">Switch Black / RED</span>
+    </my-paragraph>
     <script src="/main.js"></script>
   </body>
 </html>
