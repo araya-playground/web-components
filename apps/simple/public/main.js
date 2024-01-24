@@ -1,7 +1,5 @@
 // Implements CustomElement behavior
 class MyParagraph extends HTMLElement {
-  static observedAttributes = ["highlightColor"];
-
   clickCounter = 0;
   highlightColor = "#FF0000";
   defaultColor = "#000000";
